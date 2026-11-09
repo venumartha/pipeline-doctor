@@ -1,0 +1,26 @@
+services:
+  api:
+    build: ./backend
+    ports: ["8000:8000"]
+    environment:
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      LLM_MODEL: ${LLM_MODEL:-claude-sonnet-4-5}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      TRACE_DB: /data/traces.db
+    volumes: ["traces:/data"]
+
+  ui:
+    build: ./frontend
+    ports: ["5173:5173"]
+    environment:
+      API_URL: http://api:8000
+    depends_on: [api]
+
+  # Optional real Kafka for the next milestone: docker compose --profile kafka up
+  kafka:
+    image: apache/kafka:3.8.0
+    profiles: ["kafka"]
+    ports: ["9092:9092"]
+
+volumes:
+  traces:

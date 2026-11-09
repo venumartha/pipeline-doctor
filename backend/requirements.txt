@@ -1,0 +1,7 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+anthropic>=0.40
+mcp>=1.2  # works with 1.x and 2.x
+pytest>=8
+httpx>=0.27

@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/api.ts","./src/main.tsx","./src/components/AgentTimeline.tsx","./src/components/ApprovalCard.tsx","./src/components/FaultPanel.tsx","./src/components/PipelineMap.tsx","./src/components/Scoreboard.tsx"],"version":"5.6.3"}
